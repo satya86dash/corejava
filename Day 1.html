@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Java - Day 1</title>
+    <style>
+        p{
+            font-size: 20px;
+        }
+        li{
+            font-size: 20px;
+        }
+        center{
+            font-size: 20px;
+        }
+        button{
+            height: auto;
+            width:auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2><u>Naming Convention</u></h2>
+
+<p>It's a best practice to name your identifiers such as class, package, variable, constant, method, etc. in a standard way<br>
+  Make your code easier to read for yourself and other programmers<br>
+  Key rules that must be followed by every identifier:<br>
+</p>
+    <ul>
+    <li>The name must not contain any white spaces</li>
+    <li>The name should not start with special characters like & (ampersand), $ (dollar), _ (underscore)</li>
+    </ul>
+
+<h2><u>Class Naming Convention</u></h2>  
+<p>
+  It should start with the uppercase letter <br>
+  Use appropriate words, instead of acronyms <br>
+  <br>
+ 
+  public class Employee  <br>
+  {  <br>
+    //code snippet <br>
+  } <br>
+  </p> 
+<h2><u>Interface Naming Convention</u></h2> 
+<p>
+  It should start with the uppercase letter <br>
+  Use appropriate words, instead of acronyms <br>
+  <br>
+  interface Printable  <br>
+  {  <br>
+    //code snippet<br>
+  } <br>
+</p>
+<h2><u>Method Naming Convention</u></h2>
+<p>
+  It should start with lowercase letter <br> 
+  If the name contains multiple words, start it with a lowercase letter followed by an uppercase letter such as actionPerformed() <br>
+  <br>
+  class Employee  <br>
+  {  <br>
+    void draw()  <br>
+      {  <br>
+        //code snippet  <br>
+      }  <br>
+  }<br>
+</p>  
+<h2><u>Variable Naming Convention</u></h2>
+<p>
+  It should start with a lowercase letter such as id, name <br>
+  It should not start with the special characters like & (ampersand), $ (dollar), _ (underscore) <br>
+  If the name contains multiple words, start it with the lowercase letter followed by an uppercase letter such as firstName, lastName <br>
+  Avoid using one-character variables such as x, y, z <br>
+  <br>
+  class Employee  <br>
+  {  <br>
+    int id;  <br>
+    //code snippet <br>
+  }<br>
+ </p> 
+ <h2><u>Package Naming Convention</u></h2>
+<p>
+  It should be a lowercase letter such as java, lang <br>
+  If the name contains multiple words, it should be separated by dots (.) such as java.util, java.lang <br>
+   <br>
+  package com.satya; //package   <br>
+  class Employee   <br>
+  {   <br>
+    //code snippet   <br>
+  } <br>
+ </p> 
+ <h2><u>Constant Naming Convention</u></h2>
+<p>
+  It should be in uppercase letters such as RED, YELLOW <br>
+  If the name contains muliple words, it should be separated by an underscore(_) such as MAX_PRIORIT <br>
+  It may contain digits but not as the first letter <br>
+  <br>
+  class Employee  <br>
+  {  <br>
+    static final int MIN_AGE = 18;  <br>
+    //code snippet  <br>
+  } <br>
+</p>  
+<h2><u>camelCase Naming Convention</u></h2>
+<p>
+  Java follows camel-case syntax for naming the class, interface, method, and variable <br>
+  If the name is combined with two words, the second word will start with uppercase letter always such as actionPerformed(), firstName, ActionEvent, ActionListener, etc <br>
+</p>  
+<hr>
+<h2><u>Object & Class</u></h2>
+<p>
+  An entity that has state and behavior is known as an object e.g., chair, bike, marker, pen, table, car, etc <br>
+  An object has two characteristics: <br></p>
+   <ul>
+   <li>State: represents the data (value) of an object</li>
+    <li>Behavior: represents the behavior (functionality) of an object</li>
+    </ul>
+    <p>
+  An object identity is typically implemented via a unique ID <br>
+  The value of the ID is not visible to the external user <br>
+  It is used internally by the JVM to identify each object uniquely <br>
+  An object is an instance(result) of a class <br>
+  A class is a template or blueprint from which objects are created <br>
+  A class is a group of objects which have common properties <br>
+ <br>
+  class ClassName <br>
+  {   <br>
+    //fields <br>
+    //methods <br>
+    //constructors <br>
+    //blocks <br>
+    //nested classes <br>
+    //interfaces <br>
+  }   <br>
+</p> 
+<h2><u>Instance Variable</u></h2>
+<p>
+  A variable which is created inside the class but outside the method <br>
+  Instance variable doesn't get memory at compile time <br>
+  It gets memory at runtime when an object(instance) is created <br>
+ </p> 
+ <h2><u>new keyword</u></h2>
+<p>
+  It is used to allocate memory at runtime <br>
+  All objects get memory in Heap memory area <br>
+  Object Reference variables gets memory in stack memory area <br>
+ </p> 
+<h2><u>main() within the class</u></h2>
+<p>
+  //Java Program to illustrate how to define a class and fields  <br>
+  //Defining a Student class  <br>
+  class Student <br>
+  {   <br>
+   //defining fields   <br>
+   int id;  //field or data member or instance variable   <br>
+   String name;   <br>
+   //creating main method inside the Student class   <br>
+   public static void main(String args[]) <br>
+   {  <br>
+    //Creating an object or instance   <br>
+    Student s1 = new Student();  //creating an object of Student   <br>
+    //Printing values of the object   <br>
+    System.out.println(s1.id);  //accessing member through reference variable   <br>
+    System.out.println(s1.name);   <br>
+   }   <br>
+  } <br>
+ </p> 
+ <h2><u>main() outside the class</u></h2>
+<p>
+  //Java Program to demonstrate having the main method in another class  <br>
+  //Creating Student class <br>
+  class Student <br>
+  {   <br>
+   int id; <br>   
+   String name; <br>  
+  }   <br>
+  //Creating another class TestStudent1 which contains the main method   <br>
+  class TestStudent1 <br>
+  {   <br>
+   public static void main(String args[]) <br>
+   {   <br>
+    Student s1=new Student();   <br>
+    System.out.println(s1.id);   <br>
+    System.out.println(s1.name);   <br>
+   }   <br>
+  } <br>
+ </p> 
+ <h2><u>3 Ways to initialize object</u></h2>
+<p>
+    Initializing an object means storing data into the object </p> 
+  <ul>
+  <li>By reference variable</li>
+  <li>By method</li>
+  <li>By constructor</li>
+  </ul>
+<h2><u>Initialization through reference</u></h2>
+<p>
+  class Student <br>
+  {   <br>
+   int id; <br>  
+   String name; <br>  
+  }   <br>
+  class TestStudent2 <br>
+  {   <br>
+   public static void main(String args[]) <br>
+   {   <br>
+    Student s1 = new Student(); <br>
+    Student s2 = new Student(); //create multiple objects <br>
+    s1.id=101;   <br>
+    s1.name="Satya";  <br> 
+    s2.id=102; <br>
+    s2.name="Scorpion" <br>
+    System.out.println(s1.id+" "+s1.name);  //printing members with a white space   <br>
+    System.out.println(s2.id+" "+s2.name); <br>
+   }   <br>
+  } <br>
+</p> 
+<h2><u>Initialization through method</u></h2> 
+<p>
+  class Student <br>
+  {   <br>
+   int rollno;   <br>
+   String name;   <br>
+   void insertRecord(int r, String n) <br>
+   {   <br>
+    rollno=r;   <br>
+    name=n;   <br>
+   }   <br>
+   void displayInformation() <br>
+   { <br>
+    System.out.println(rollno+" "+name); <br>
+   }   <br>
+  }   <br>
+  class TestStudent4 <br>
+  {   <br>
+   public static void main(String args[]) <br>
+   {   <br>
+    Student s1=new Student();   <br>
+    Student s2=new Student();   <br>
+    s1.insertRecord(111,"Karan");   <br>
+    s2.insertRecord(222,"Aryan");   <br>
+    s1.displayInformation();   <br>
+    s2.displayInformation();   <br>
+   }   <br>
+  } <br>
+ </p>
+ <h2><u>Anonymous Object</u></h2>  
+<p>
+  An object which has no reference is known as an anonymous object <br>
+  It can be used at the time of object creation only <br>
+   <br>
+  class Calculation <br>
+  {   <br>
+   void fact(int  n) <br>
+   {   <br>
+    int fact=1;   <br>
+    for(int i=1; i<=n; i++) <br>
+    {   <br>
+     fact=fact * i;   <br>
+    }   <br>
+   System.out.println("factorial is "+fact);   <br>
+  }   <br>
+  public static void main(String args[]) <br>
+  {   <br>
+   new Calculation().fact(5); //calling method with anonymous object   <br>
+  }   <br>
+ } <br>
+ <center>****************************** End of Day 1 ******************************</center>
+ </p>
+ </body>
+</html>
