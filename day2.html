@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Java - Day 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="whole">
+<body>
+    
+<h2><u>Constructors in Java</u></h2>
+
+It is called when an instance of the class is created <br>
+At the time of calling constructor, memory for the object is allocated in the memory <br>
+It is a special type of method which is used to initialize the object <br>
+Every time an object is created using the new() keyword, at least one constructor is called <br>
+It calls a default constructor if there is no constructor available in the class <br>
+It is called constructor because it constructs the values at the time of object creation <br>
+
+<h2><u>Rules for creating Java constructor</u></h2>
+
+Constructor name must be the same as its class name <br>
+Constructor must have no explicit return type <br>
+Constructor cannot be abstract, static, final, and synchronized <br>
+Access modifiers can be used while declaring a constructor (public, private, protected or dafault) <br>
+
+<h2><u>Types of Java constructors</u></h2>
+
+<ul>
+<li>Default constructor (no-arg constructor)</li>
+<li>Parameterized constructor</li>
+</ul>
+
+<h2><u>Default Constructor</u></h2>
+
+A constructor is called "Default Constructor" when it doesn't have any parameter <br>
+<br>
+<div class="p1">
+className() <br>
+{<br>
+//code snippet<br>
+}  <br>
+
+//Java Program to create and call a default constructor  <br>
+class Bike1 <br>
+{  <br>
+//creating a default constructor  <br>
+Bike1()<br>
+{<br>
+System.out.println("Bike is created");<br>
+}  <br>
+//main method  <br>
+public static void main(String args[])<br>
+{  <br>
+//calling a default constructor  <br>
+Bike1 b = new Bike1();  <br>
+}  <br>
+}  <br>
+</div>
+<br>
+If there is no constructor in a class, compiler automatically creates a default constructor <br>
+The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type <br> <br>
+<div class="p2">
+//Let us see another example of default constructor   <br>
+//which displays the default values   <br>
+class Student3 <br>
+{   <br>
+int id;  <br> 
+String name;  <br> 
+//method to display the value of id and name   <br>
+void display() <br>
+{ <br>
+System.out.println(id+" "+name); <br>
+ }   <br>
+  
+public static void main(String args[])  <br>
+{ <br>  
+//creating objects   <br>
+Student3 s1=new Student3();   <br>
+Student3 s2=new Student3();   <br>
+//displaying values of the object  <br> 
+s1.display();   <br>
+s2.display();   <br>
+}   <br>
+}   <br>
+</div>  <br>
+<h2><u>Parameterized Constructor</u></h2>
+
+A constructor which has a specific number of parameters is called a parameterized constructor <br>
+The parameterized constructor is used to provide customized values to objects <br>
+We can have any number of parameters in the constructor <br> <br>
+<div class="p3">
+//Java Program to demonstrate the use of the parameterized constructor.   <br>
+class Student4 <br>
+   {   <br>
+    int id; <br>  
+    String name; <br>  
+    //creating a parameterized constructor   <br>
+    Student4(int i,String n) <br>
+    { <br>  
+    id = i; <br>  
+    name = n;   <br>
+    }   <br>
+    //method to display the values   <br>
+    void display() <br>
+    { <br>
+    System.out.println(id+" "+name); <br>
+    } <br>  
+   
+    public static void main(String args[]) <br>
+    { <br>  
+    //creating objects and passing values   <br>
+    Student4 s1 = new Student4(111,"Karan");   <br>
+    Student4 s2 = new Student4(222,"Aryan");   <br>
+    //calling method to display the values of object   <br>
+    s1.display();   <br>
+    s2.display();   <br>
+   }   <br>
+}   <br>
+</div> <br>
+<h2><u>Constructor Overloading</u></h2>
+
+In Java, a constructor is just like a method but without return type <br>
+It can also be overloaded like Java methods <br>
+Constructor overloading in Java is a technique of having more than one constructor with different parameter lists <br>
+Each constructor performs a different task <br>
+They are differentiated by the compiler by the number of parameters in the list and their types <br>  <br>
+<div class="p4">
+//Java program to overload constructors  <br>
+class Student5 <br>
+   { <br>  
+    int id;   <br>
+    String name;   <br>
+    int age;   <br>
+    //creating two arg constructor   <br>
+    Student5(int i,String n) <br>
+    { <br>  
+    id = i;  <br> 
+    name = n;   <br>
+    }   <br>
+    //creating three arg constructor   <br>
+    Student5(int i,String n,int a) <br>
+    { <br>  
+    id = i; <br>  
+    name = n;   <br>
+    age=a;   <br>
+    }   <br>
+    void display(){System.out.println(id+" "+name+" "+age); <br>
+    } <br>  
+   
+    public static void main(String args[]) <br>
+    { <br>  
+    Student5 s1 = new Student5(111,"Karan");   <br>
+    Student5 s2 = new Student5(222,"Aryan",25);   <br>
+    s1.display();   <br>
+    s2.display();   <br>
+   }   <br>
+}   <br>
+</div> <br>
+<h2><u>Difference between constructor and method</u></h2>
+<table border="2px" cellspacing="2px" cellpadding="2px" >
+    <tr>
+        <th>Constructor</th>
+        <th>Method</th>
+    </tr>
+    <tr>
+        <td>A constructor is used to initialize the state of an object</td>
+        <td>A method is used to expose the behavior of an object</td>
+    </tr>
+    <tr>
+        <td>A constructor must not have a return type</td>
+        <td>A method must have a return type</td>
+    </tr>
+    <tr>
+        <td>The constructor is invoked implicitly</td>
+        <td>The method is invoked explicitly</td>
+    </tr>
+    <tr>
+        <td>The Java compiler provides a default constructor if you don't have any constructor in a class</td>
+        <td>The method is not provided by the compiler in any case</td>
+    </tr>
+    <tr>
+        <td>The constructor name must be same as the class name</td>
+        <td>The method name may or may not be same as the class name</td>
+    </tr>
+</table>
+<br>
+<hr> 
+<h2><u>static keyword</u></h2>
+
+It is used for memory management <br>
+We can apply static keyword with variables, methods, blocks and nested class <br>
+It belongs to the class than an instance of the class <br>
+
+<h2><u>static variable</u></h2>
+
+If you declare any variable as static, it is known as a static variable <br>
+The static variable can be used to refer to the common property of all objects (which is not unique for each object), for example, the company name of employees, college name of students, etc <br>
+The static variable gets memory only once in the class area at the time of class loading <br>
+It makes your program memory efficient (i.e., it saves memory) <br>
+Java static property is shared to all objects <br> <br>
+<div class="p5">
+//Java Program to demonstrate the use of static variable  <br>
+class Student <br>
+  { <br>  
+   int rollno;//instance variable   <br>
+   String name;   <br>
+   static String college ="ITS";//static variable   <br>
+   //constructor   <br>
+   Student(int r, String n) <br>
+   { <br>  
+   rollno = r;   <br>
+   name = n;   <br>
+   }   <br>
+   //method to display the values   <br>
+   void display () <br>
+   { <br>
+   System.out.println(rollno+" "+name+" "+college); <br>
+   }  <br> 
+}   <br>
+//Test class to show the values of objects   <br>
+public class TestStaticVariable1 <br>
+{ <br>  
+ public static void main(String args[]) <br>
+ { <br>  
+ Student s1 = new Student(111,"Karan");   <br>
+ Student s2 = new Student(222,"Aryan");   <br>
+ //we can change the college of all objects by the single line of code   <br>
+ //Student.college="BBDIT";   <br>
+ s1.display();   <br>
+ s2.display();   <br>
+ }   <br>
+}   <br>
+</div>
+<h2><u>Program of counter by static variable</u></h2>
+
+static variable will get the memory only once <br>
+If any object changes the value of the static variable, it will retain its value <br> <br>
+<div class="p1">
+//Java Program to illustrate the use of static variable which   <br>
+//is shared with all objects.   <br>
+class Counter2 <br>
+{ <br>  
+static int count=0;//will get memory only once and retain its value   <br>
+  
+Counter2() <br>
+{ <br>  
+count++;//incrementing the value of static variable   <br>
+System.out.println(count);   <br>
+}   <br>
+  
+public static void main(String args[]) <br>
+{ <br>  
+//creating objects   <br>
+Counter2 c1=new Counter2(); <br>  
+Counter2 c2=new Counter2();   <br>
+Counter2 c3=new Counter2();   <br>
+}   <br>
+} <br>
+</div> <br>
+<h2><u>static method</u></h2>
+
+If you apply static keyword with any method, it is known as static method <br>
+A static method belongs to the class rather than the object of a class <br>
+A static method can be invoked without the need for creating an instance of a class <br>
+A static method can access static data member and can change the value of it <br> <br>
+<div class="p2">
+//Java Program to demonstrate the use of a static method.   <br>>
+class Student <br>
+    { <br>  
+     int rollno;   <br>
+     String name;   <br>
+     static String college = "ITS";   <br>
+     //static method to change the value of static variable   <br>
+     static void change() <br>
+     { <br>  
+     college = "BBDIT";   <br>
+     }   <br>
+     //constructor to initialize the variable   <br>
+     Student(int r, String n) <br>
+     { <br>  
+     rollno = r;   <br>
+     name = n;   <br>
+     }   <br>
+     //method to display values   <br>
+     void display() <br>
+     { <br>
+     System.out.println(rollno+" "+name+" "+college); <br>
+     } <br>  
+}   <br>
+//Test class to create and display the values of object   <br>
+public class TestStaticMethod <br>
+   { <br>  
+    public static void main(String args[]) <br>
+    { <br>   
+    Student.change();//calling change method   <br>
+    //creating objects   <br>
+    Student s1 = new Student(111,"Karan");   <br>
+    Student s2 = new Student(222,"Aryan");   <br>
+    Student s3 = new Student(333,"Sonoo");   <br>
+    //calling display method   <br>
+    s1.display();   <br>
+    s2.display();   <br>
+    s3.display();   <br>
+    }   <br>
+}   <br>
+</div> <br>
+The static method can not use non static data member or call non-static method directly <br>
+this keyword and super keyword cannot be used in static context <br>
+main() is static because object is not required to call a static method <br>
+If it were a non-static method, JVM creates an object first & then call main() <br>
+That will lead the problem of extra memory allocation <br>
+
+<h2><u>static block</u></h2>
+
+Is used to initialize the static data member <br>
+It is executed before the main method at the time of classloading <br> <br>
+<div class="p3">
+class A2 <br>
+ { <br>  
+  static <br>
+  { <br>
+   System.out.println("static block is invoked"); <br>
+  }   <br>
+  public static void main(String args[]) <br>
+  {  <br> 
+   System.out.println("Hello main");   <br>
+  }   <br>
+} <br>
+    </div> <br> 
+<hr>
+
+<h2><u>this keyword</u></h2>
+
+'this' is a reference variable that refers to the current object <br>
+'this' can be used to refer current class instance variable <br>
+'this' can be used to invoke current class method (implicitly) <br>
+'this()' can be used to invoke current class constructor <br>
+
+<h2><u>this: to refer current class instance variable</u></h2>
+
+If there is ambiguity between the instance variables and parameters, 'this' keyword resolves the problem of ambiguity <br>
+If local parameters (formal arguments) and instance variables are same, we use this keyword to distinguish local variable from instance variable <br>
+If local variables(formal arguments) and instance variables are different, there is no need to use this keyword <br> <br>
+<div class="p4">
+class Student <br>
+{ <br>  
+int rollno;   <br>
+String name;   <br>
+float fee;   <br>
+Student(int rollno,String name,float fee) <br>
+{   <br>
+this.rollno=rollno;   <br>
+this.name=name;   <br>
+this.fee=fee;   <br>
+}   <br>
+void display() <br>
+{ <br>
+System.out.println(rollno+" "+name+" "+fee); <br>
+}   <br>
+}   <br>
+  
+class TestThis2 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+Student s1=new Student(111,"ankit",5000f);   <br>
+Student s2=new Student(112,"sumit",6000f);   <br>
+s1.display();   <br>
+s2.display();   <br>
+} <br>
+}  <br>
+    </div> <br>
+<h2><u>this: to invoke current class method</u></h2>
+
+You may invoke the method of the current class by using the this keyword <br>
+If you don't use the this keyword, compiler automatically adds this keyword while invoking the method <br> <br>
+<div class="p5">
+class A  <br>
+{   <br>
+void m() <br>
+{ <br>
+System.out.println("hello m"); <br>
+}   <br>
+void n() <br>
+{   <br>
+System.out.println("hello n");   <br>
+//m();//same as this.m()   <br>
+this.m();   <br>
+}   <br>
+}   <br>
+class TestThis4 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+A a=new A();   <br>
+a.n();   <br>
+} <br>
+}   <br>
+    <br> </div> <br>
+<h2><u>this() : to invoke current class constructor</u></h2>
+
+'this()' constructor call can be used to invoke the current class constructor <br>
+It is used to reuse the constructor (constructor chaining) <br>  <br>
+<div class="p1">
+//Calling default constructor from parameterized constructor  <br>
+class A <br>
+{   <br>
+A() <br>
+{ <br>
+System.out.println("hello a"); <br>
+}   <br>
+A(int x) <br>
+{   <br>
+this();  <br> 
+System.out.println(x);   <br>
+}   <br>
+}   <br>
+class TestThis5 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+A a=new A(10);   <br>
+} <br>
+}   <br>
+    </div> <br>
+<div class="p2">
+//Calling parameterized constructor from default constructor <br>
+class A <br>
+{   <br>
+A() <br>
+{   <br>
+this(5); <br>  
+System.out.println("hello a");   <br>
+}   <br>
+A(int x) <br>
+{   <br>
+System.out.println(x);   <br>
+}   <br>
+}   <br>
+class TestThis6 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+A a=new A();   <br>
+} <br>
+}   <br>
+    </div> <br>
+<div class="p3">
+//Constructor chaining <br>
+class Student <br>
+{   <br>
+int rollno;   <br>
+String name,course;   <br>
+float fee;   <br>
+Student(int rollno,String name,String course) <br>
+{   <br>
+this.rollno=rollno;   <br>
+this.name=name;   <br>
+this.course=course;   <br>
+}   <br>
+Student(int rollno,String name,String course,float fee) <br>
+{   <br>
+this(rollno,name,course);//reusing constructor   <br>
+this.fee=fee;   <br>
+}   <br>
+void display() <br>
+{ <br>
+System.out.println(rollno+" "+name+" "+course+" "+fee); <br>
+}   <br>
+}   <br>
+class TestThis7 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+Student s1=new Student(111,"ankit","java");   <br>
+Student s2=new Student(112,"sumit","java",6000f);  <br> 
+s1.display();   <br>
+s2.display();   <br>
+} <br>
+} <br>
+    </div> <br><br>
+Call to this() must be the first statement in constructor <br> <br>
+<div class="p4">
+class Student <br>
+{   <br>
+int rollno;   <br>
+String name,course;   <br>
+float fee;   <br>
+Student(int rollno,String name,String course) <br>
+{   <br>
+this.rollno=rollno;   <br>
+this.name=name;   <br>
+this.course=course;   <br>
+}   <br>
+Student(int rollno,String name,String course,float fee) <br>
+{   <br>
+this.fee=fee;   <br>
+this(rollno,name,course);//C.T.Error   <br>
+}   <br>
+void display() <br>
+{ <br>
+System.out.println(rollno+" "+name+" "+course+" "+fee); <br>
+}   <br>
+}   <br>
+class TestThis8 <br>
+{   <br>
+public static void main(String args[]) <br>
+{   <br>
+Student s1=new Student(111,"ankit","java");   <br>
+Student s2=new Student(112,"sumit","java",6000f);  <br> 
+s1.display();   <br>
+s2.display();   <br>
+} <br>
+} <br>
+    </div> <br>
+
+'this' keyword refers to the current class instance variable <br>
+If we print reference variable and this, then output of both will be same <br>
+ <br>
+ <div class="p1">
+class A5 <br>
+{   <br>
+void m() <br>
+{ <br>  
+System.out.println(this);//prints same reference ID   <br>
+}   <br>
+public static void main(String args[]) <br>
+{   <br>
+A5 obj=new A5();   <br>
+System.out.println(obj);//prints the reference ID   <br>
+obj.m();   <br>
+}   <br>
+}   <br>
+    </div>
+  <a class="anchor" href="index.html">Home</a>
+</body>
+</div> 
+</html>
