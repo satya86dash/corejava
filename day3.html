@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Java - Day 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="whole">
+<body>
+    
+<h2><u>Inheritance</u></h2>
+
+It is a mechanism in which one object acquires all the properties and behaviors of a parent object <br>
+You can create new classes that are built upon existing classes <br>
+When you inherit from an existing class, you can reuse methods and fields of the parent class <br>
+You can also add new methods and fields in your current class <br>
+Inheritance represents the IS-A relationship which is also known as a parent-child relationship <br>
+Inheritance is used for: 
+<ul>
+    <li>Method Overriding</li>
+    <li>Code Reusability</li>
+</ul>
+<h2><u>Terms used in Inheritance</u></h2>
+
+<ul>
+    <li>Class is a group of objects which have common properties</li>
+    <li>It is a template or blueprint from which objects are created</li>
+</ul>
+
+<ul>
+    <li>Sub Class / Child Class is a class which inherits the other class</li>
+    <li>It is also called a derived class, extended class, or child class</li>
+</ul>
+
+<ul>
+    <li>Super Class is the class from where a subclass inherits the features</li>
+    <li>It is also called a base class or a parent class</li>
+</ul>
+<ul>
+    <li>Reusability is a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class</li>
+    <li>You can use the same fields and methods already defined in the previous class</li>
+</ul>
+
+class SubClassName extends SuperClassName <br> 
+{   <br>
+   //methods and fields   <br>
+}   <br> <br>
+
+The extends keyword indicates that you are making a new class that derives from an existing class <br> <br>
+
+<div class="p1">
+   class Employee <br>
+   {  <br> 
+ float salary=40000;   <br>
+}   <br>
+class Programmer extends Employee <br>
+{ <br>  
+ int bonus=10000;   <br>
+ public static void main(String args[]) <br>
+  { <br>  
+   Programmer p=new Programmer();   <br>
+   System.out.println("Programmer salary is:"+p.salary);   <br>
+   System.out.println("Bonus of Programmer is:"+p.bonus);   <br>
+}   <br>
+}   <br>
+    
+</div>  <br>
+
+Multiple inheritance is not supported in Java through class <br>
+
+Multiple and Hybrid inheritance is supported through interface only 
+
+<h2><u>Single Inheritance Example</u></h2>
+<div class="p2">
+class Animal <br>
+{ <br>  
+void eat(){System.out.println("eating..."); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void bark() <br>
+  { <br>
+  System.out.println("barking..."); <br>
+  } <br>  
+}   <br>
+class TestInheritance <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Dog d=new Dog();   <br>
+d.bark();   <br>
+d.eat();   <br>
+} <br>
+} <br>
+</div> 
+
+<h2><u>Multilevel Inheritance Example</u></h2> 
+<div class="p3">
+class Animal <br>
+{ <br>  
+void eat() <br>
+  { <br>
+  System.out.println("eating..."); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void bark() <br>
+  { <br>
+  System.out.println("barking..."); <br>
+  } <br>  
+}   <br>
+class BabyDog extends Dog <br>
+{ <br>  
+void weep() <br>
+  { <br>
+  System.out.println("weeping..."); <br>
+  } <br>  
+}   <br>
+class TestInheritance2 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{  <br> 
+BabyDog d=new BabyDog(); <br>  
+d.weep();   <br>
+d.bark();   <br>
+d.eat();   <br>
+} <br>
+   } <br>  
+    
+</div>
+<h2><u>Hierarchical Inheritance Example</u></h2>
+<div class="p4">
+class Animal <br>
+{ <br>  
+void eat() <br>
+  { <br>
+  System.out.println("eating..."); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void bark() <br>
+  { <br>
+  System.out.println("barking..."); <br>
+  } <br>  
+}   <br>
+class Cat extends Animal <br>
+{ <br>  
+void meow() <br>
+  { <br>
+  System.out.println("meowing..."); <br>
+  } <br>  
+}   <br>
+class TestInheritance3 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Cat c=new Cat();   <br>
+c.meow();   <br>
+c.eat();   <br>
+//c.bark();//C.T.Error   <br>
+} <br>
+} <br> 
+</div> 
+
+<h2><u>Why multiple inheritance is not supported in java</u></h2>
+Consider a scenario where A, B, and C are three classes <br>
+The C class inherits A and B classes <br>
+If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class <br>
+<hr>
+<h2><u>Method Overloading</u></h2>
+If a class has multiple methods having same name but different in parameters, it is known as Method Overloading <br>
+If we have to perform only one operation, having same name of the methods increases the readability of the program <br>
+There are two ways to overload the method in java: 
+<ul>
+    <li>By changing number of arguments</li>
+    <li>By changing the data type</li>
+</ul>
+Method Overloading is not possible by changing the return type of the method because of ambiguity <br> <br>    
+<div class="p5">
+class Adder <br>
+{ <br>  
+static int add(int a,int b) <br>
+{ <br>
+return a+b; <br>
+} <br>  
+static double add(int a,int b) <br>
+  { <br>
+  return a+b; <br>
+  } <br>  
+}   <br>
+class TestOverloading3 <br>
+{ <br>  
+public static void main(String[] args) <br>
+{ <br>  
+System.out.println(Adder.add(11,11));//ambiguity   <br>
+} <br>
+} <br>  
+</div> <br>
+In the above program, JVM can't determine which sum() method should be called & you will get compile time error
+<h2><u>Method Overloading: changing no. of arguments</u></h2>
+<div class="p1">
+class Adder <br>
+{ <br>  
+static int add(int a,int b) <br>
+{ <br>
+return a+b; <br>
+} <br>  
+static int add(int a,int b,int c) <br>
+  { <br>
+  return a+b+c; <br>
+  } <br>  
+}   <br>
+class TestOverloading1 <br>
+{ <br>  
+public static void main(String[] args) <br>
+{ <br>  
+System.out.println(Adder.add(11,11));   <br>
+System.out.println(Adder.add(11,11,11));   <br>
+} <br>
+} <br>  
+</div>
+<h2><u>Method Overloading: changing data type of arguments</u></h2>
+<div class="p2">
+class Adder <br>
+{ <br>  
+static int add(int a, int b) <br>
+{ <br>
+return a+b; <br>
+} <br>  
+static double add(double a, double b) <br>
+  { <br>
+  return a+b; <br>
+  } <br>  
+}   <br>
+class TestOverloading2 <br>
+{ <br>  
+public static void main(String[] args) <br>
+{ <br>  
+System.out.println(Adder.add(11,11));   <br>
+System.out.println(Adder.add(12.3,12.6));   <br>
+} <br>
+   } <br>  
+    
+</div> <br>
+we overload java main() method <br>
+You can have any number of main methods in a class by method overloading <br>
+But JVM calls main() method which receives string array as arguments only <br>  <br>
+<div class="p3">
+class TestOverloading4 <br>
+{ <br>  
+public static void main(String[] args) <br>
+{ <br>
+System.out.println("main with String[]"); <br>
+} <br>  
+public static void main(String args) <br>
+{ <br>
+System.out.println("main with String"); <br>
+} <br>  
+public static void main() <br>
+  { <br>
+  System.out.println("main without args"); <br>
+  } <br>  
+}   <br> 
+</div>
+<h2><u>Method Overloading with TypePromotion</u></h2>
+<div class="p4">
+class OverloadingCalculation1 <br>
+{ <br>  
+void sum(int a,long b) <br>
+{ <br>
+System.out.println(a+b); <br>
+} <br>  
+void sum(int a,int b,int c) <br>
+{ <br>
+System.out.println(a+b+c); <br>
+}  
+public static void main(String args[]) <br>
+{ <br>  
+OverloadingCalculation1 obj=new OverloadingCalculation1();  <br> 
+obj.sum(20,20);//now second int literal will be promoted to long <br>  
+obj.sum(20,20,20);   <br>
+  
+  }   <br>
+} <br>
+</div>
+<h2><u>Method Overloading with Type Promotion if matching found</u></h2>
+<div class="p5">
+class OverloadingCalculation2 <br>
+{ <br>  
+void sum(int a,int b) <br>
+{ <br>
+System.out.println("int arg method invoked"); <br>
+} <br>  
+void sum(long a,long b) <br>
+{ <br>
+System.out.println("long arg method invoked"); <br>
+} <br>  
+public static void main(String args[]) <br>
+{ <br>  
+OverloadingCalculation2 obj=new OverloadingCalculation2(); <br>  
+obj.sum(20,20);//now int arg sum() method gets invoked   <br>
+  }   <br>
+}   <br>
+</div>
+<h2><u>Method Overloading with Type Promotion in case of ambiguity</u></h2>
+<div class="p1">
+class OverloadingCalculation3 <br>
+{ <br>  
+void sum(int a,long b) <br>
+{ <br>
+System.out.println("a method invoked"); <br>
+} <br>  
+void sum(long a,int b) <br>
+{ <br>
+System.out.println("b method invoked"); <br>
+} <br>  
+public static void main(String args[]) <br>
+{ <br>  
+OverloadingCalculation3 obj=new OverloadingCalculation3();   <br>
+obj.sum(20,20);//now ambiguity   <br>
+  }   <br>
+}   <br>
+    </div>
+<br>
+<a class="anchor" href="index.html">Home</a>
+</body>
+</div>
+</html>
