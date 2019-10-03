@@ -1,14 +1,16 @@
             .img1{
-            display: inline-block;
+            
             position: absolute;
+            width:15%;
             top: 100px;
-            right: 10px;
+            right: 20px;
         }
         .img2{
-            display: inline-block;
+            
             position: absolute;
+            width:15%;
             top: 100px;
-            left: 10px;
+            left: 20px;
             }     
 
             .whole{
