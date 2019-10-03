@@ -5,18 +5,30 @@
     <title>Core Java - Day 4</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .img7{
+        .img9{
             display: inline-block;
             position: absolute;
-            top: 1000px;
-            left: 60px;
+            top: 3000px;
+            left: 10px;
             } 
-            .img8{
+            .img10{
             display: inline-block;
             position: absolute;
-            top: 1000px;
-            right: 60px;
+            top: 3000px;
+            right: 10px;
             }
+        .img5{
+            display: inline-block;
+            position: absolute;
+            top: 6300px;
+            right: 10px;
+            } 
+        .img6{
+            display: inline-block;
+            position: absolute;
+            top: 6300px;
+            left: 10px;
+            } 
     </style>
 
 </head>
@@ -24,9 +36,11 @@
 <body>
 
  <img class="img1" src="img1.jpg" alt="">
- <img class="img2" src="img2.jpg" alt="">
-
-  
+ <img class="img2" src="img2.JPG" alt="">
+<img class="img9" src="img9.JPG" alt="">
+ <img class="img10" src="img10.JPG" alt="">
+  <img class="img5" src="img5.JPG" alt="">
+ <img class="img6" src="img6.JPG" alt="">
    <div class="whole">
     <h2><u>Method Overriding</u></h2>
     
@@ -40,9 +54,319 @@
        <li>The method must have the same parameter as in the parent class</li>
        <li>There must be an IS-A relationship (inheritance)</li>
    </ul>
+    <h2><u>Example of Method Overriding</u></h2>
+    We have to define the run() method in the subclass as defined in the parent class but it has some specific implementation <br>
+    The name and parameter of the method are the same, and there is IS-A relationship between the classes, so there is method overriding <br> <br>
+    <div class="p1">
+    //Java Program to illustrate the use of Java Method Overriding  <br> 
+//Creating a parent class.   <br>
+class Vehicle <br>
+ { <br>  
+  //defining a method   <br>
+  void run() <br>
+  { <br>
+  System.out.println("Vehicle is running"); <br>
+  } <br>  
+}   <br>
+//Creating a child class   <br>
+class Bike2 extends Vehicle <br>
+ { <br>  
+  //defining the same method as in the parent class   <br>
+  void run() <br>
+  { <br>
+  System.out.println("Bike is running safely"); <br>
+  } <br>  
+  
+  public static void main(String args[]) <br>
+  { <br>  
+  Bike2 obj1 = new Bike2();//creating object   <br>
+  obj1.run();//calling method   <br>
+  Vehicle obj2 = new Vehicle(); <br>
+  obj2.run(); <br>
+  Vehicle obj3 = new Bike2(); <br>
+  obj3.run(); <br>
+  }   <br>
+}   <br>
+   </div> <br>
+   Java method overriding is mostly used in Runtime Polymorphism <br> <br>
+   <div class="p2">
+//Java Program to demonstrate the real scenario of Java Method Overriding  <br>
+//where three classes are overriding the method of a parent class.   <br>
+//Creating a parent class.   <br>
+class Bank <br>
+{ <br>  
+int getRateOfInterest() <br>
+  { <br>
+  return 0; <br>
+  } <br>  
+}   <br>
+//Creating child classes.   <br>
+class SBI extends Bank <br>
+{ <br>  
+int getRateOfInterest() <br>
+  { <br>
+  return 8; <br>
+  } <br>  
+}   <br>
+  
+class ICICI extends Bank <br>
+{ <br>  
+int getRateOfInterest() <br>
+  { <br>
+  return 7; <br>
+  } <br>  
+}   <br>
+class AXIS extends Bank <br>
+{ <br>  
+int getRateOfInterest() <br>
+  { <br>
+  return 9; <br>
+  } <br>  
+}   <br>
+//Test class to create objects and call the methods   <br>
+class Test2 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+SBI s=new SBI(); <br>  
+ICICI i=new ICICI();  <br> 
+AXIS a=new AXIS();   <br>
+System.out.println("SBI Rate of Interest: "+s.getRateOfInterest());   <br>
+System.out.println("ICICI Rate of Interest: "+i.getRateOfInterest());   <br>
+System.out.println("AXIS Rate of Interest: "+a.getRateOfInterest());   <br>
+}   <br>
+}   <br>
+       
+   </div> <br>
     
-   
+    A static method cannot be overridden <br>
+    It is because the static method is bound with class whereas instance method is bound with an object 
+    <h2><u>Difference between Method Overloading and Method Overriding in java</u></h2>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Method Overloading</th>
+                <th>Method Overriding</th>
+            </tr>
+            <tr>
+                <td>Method overloading is used to increase the readability of the program</td>
+                <td>Method overriding is used to provide the specific implementation of the method that is already provided by its super class</td>
+            </tr>
+            <tr>
+                <td>Method overloading is performed within class</td>
+                <td>Method overriding occurs in two classes that have IS-A (inheritance) relationship</td>
+            </tr>
+            <tr>
+                <td>In case of method overloading, parameter must be different</td>
+                <td>In case of method overriding, parameter must be same</td>
+            </tr>
+            <tr>
+                <td>Method overloading is the example of compile time polymorphism</td>
+                <td>Method overriding is the example of run time polymorphism</td>
+            </tr>
+            <tr>
+                <td>In java, method overloading can't be performed by changing return type of the method only. Return type can be same or different in method overloading. But you must have to change the parameter</td>
+                <td>Return type must be same in method overriding</td>
+                
+            </tr>
+            
+        </thead>
+    </table>
+    <br>
+    <hr>
+    <h2><u>super keyword</u></h2>
     
+super keyword is a reference variable which is used to refer immediate parent class object <br>
+Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable <br>
+super can be used to refer immediate parent class instance variable <br>
+super can be used to invoke immediate parent class method <br>
+super() can be used to invoke immediate parent class constructor <br>
+<h2><u>super: to refer immediate parent class instance variable</u></h2>
+It is used if parent class and child class have same fields <br> <br>
+<div class="p3">
+class Animal <br>
+{ <br>  
+String color="white";   <br>
+}   <br>
+class Dog extends Animal <br>
+{   <br>
+String color="black";   <br>
+void printColor() <br>
+{ <br>  
+System.out.println(color);//prints color of Dog class   <br>
+System.out.println(super.color);//prints color of Animal class   <br>
+}   <br>
+}   <br>
+class TestSuper1 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Dog d=new Dog();   <br>
+d.printColor();   <br>
+} <br>
+} <br>      
+</div> 
+<h2><u>super: to invoke parent class method</u></h2>
+It should be used if subclass contains the same method as parent class <br>
+In other words, it is used if method is overridden <br> <br>
+<div class="p4">
+class Animal <br>
+{   <br>
+void eat() <br>
+  { <br>
+  System.out.println("eating..."); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void eat() <br>
+{ <br>
+System.out.println("eating bread..."); <br>
+} <br>  
+void bark() <br>
+{ <br>
+System.out.println("barking..."); <br>
+} <br>  
+void work() <br>
+{ <br>  
+super.eat(); <br>  
+bark();   <br>
+}   <br>
+}   <br>
+class TestSuper2 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Dog d=new Dog(); <br>  
+d.work();   <br>
+} <br>
+} <br>    
+</div>  
+<h2><u>super(): to invoke parent class constructor</u></h2>
+super keyword can also be used to invoke the parent class constructor <br> <br>
+<div class="p5">
+class Animal <br>
+{ <br>  
+Animal() <br>
+  { <br>
+  System.out.println("animal is created"); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+Dog() <br>
+{ <br>  
+super();  <br> 
+System.out.println("dog is created"); <br>  
+}   <br>
+}   <br>
+class TestSuper3 <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Dog d=new Dog(); <br>  
+} <br>
+} <br>
+</div> <br>
+super() is added in each class constructor automatically by compiler if there is no super() or this() <br>
+Default constructor is provided by compiler automatically if there is no constructor & it also adds super() as the first statement <br> <br>
+<div class="p1">
+class Person  <br>
+{ <br>  
+int id; <br>  
+String name; <br>  
+Person(int id,String name) <br>
+{ <br>  
+this.id=id;   <br>
+this.name=name;   <br>
+}   <br>
+}   <br>
+class Emp extends Person <br>
+{ <br>  
+float salary;   <br>
+Emp(int id,String name,float salary) <br>
+{ <br>  
+super(id,name);//reusing parent constructor   <br>
+this.salary=salary;   <br>
+}   <br>
+void display()  <br>
+  {  <br>
+  System.out.println(id+" "+name+" "+salary);  <br>
+  }  <br>  
+}    <br>
+class TestSuper5  <br>
+{  <br>  
+public static void main(String[] args)  <br>
+{  <br>  
+Emp e1=new Emp(1,"ankit",45000f);    <br>
+e1.display();    <br>
+}  <br>
+}  <br>  
+</div> <br>
+<hr>
+<h2><u>final keyword</u></h2>
+It can be used with variable, method or class <br>
+<h2><u>final variable</u></h2>
+If you make any variable as final, you cannot change the value of final variable(It will be constant) <br> <br>
+<div class="p2">
+class Bike9 <br>
+{ <br>  
+ final int speedlimit=90;//final variable   <br>
+ void run() <br>
+ { <br>  
+  speedlimit=400;   <br>
+ }   <br>
+ public static void main(String args[]) <br>
+ { <br>  
+ Bike9 obj=new  Bike9();   <br>
+ obj.run();   <br>
+ }   <br>
+} <br>      
+</div> 
+<h2><u>final method</u></h2>
+If you make any method as final, you cannot override it <br> <br>
+<div class="p3">
+class Bike  <br>
+ { <br>  
+  final void run() <br>
+  { <br>
+  System.out.println("running"); <br>
+  } <br>  
+}   <br>
+     
+class Honda extends Bike <br>
+  { <br>  
+   void run() <br>
+    { <br>
+    System.out.println("running safely with 100kmph"); <br>
+    } <br>  
+     
+   public static void main(String args[]) <br>
+   { <br>  
+   Honda honda= new Honda();   <br>
+   honda.run();   <br>
+   }   <br>
+}      <br>
+</div> <br>
+final method is inherited but you cannot override it 
+<h2><u>final class</u></h2>
+If you make any class as final, you cannot extend it <br> <br>
+<div class="p4">
+final class Bike <br>
+ { <br>
+ } <br>  
+  
+class Honda1 extends Bike <br>
+ { <br>  
+  void run(){System.out.println("running safely with 100kmph");}   <br>
+    
+  public static void main(String args[]) <br>
+  { <br>  
+  Honda1 honda= new Honda1();   <br>
+  honda.run();   <br>
+  }   <br>
+} <br>
+</div>
 <a class="anchor" href="index.html">Home</a>
 </div>
 </body>
