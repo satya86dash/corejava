@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Java - Day 5</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .img3{
+            position: absolute;
+            width: 15%;
+            top: 4100px;
+            left: 20px;
+        }
+        .img4{
+            position: absolute;
+            width: 15%;
+            top: 4100px;
+            right: 20px;
+        }
+        .img5{
+            position: absolute;
+            width: 15%;
+            top: 5400px;
+            left: 20px;
+        }
+        .img6{
+            position: absolute;
+            width: 15%;
+            top: 5400px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+   <img class="img1" src="img1.jpg" alt="">
+   <img class="img2" src="img2.jpg" alt="">
+   <img class="img3" src="img3.JPG" alt="">
+   <img class="img4" src="img4.JPG" alt="">
+   <img class="img5" src="img5.JPG" alt="">
+   <img class="img6" src="img6.JPG" alt="">
+   <div class="whole">
+      
+      <h2><u>Polymorphism</u></h2>
+      It is a concept by which we can perform a single action in different ways <br>
+      Polymorphism means many forms <br>
+      There are two types of polymorphism in Java:
+      <ul>
+          <li>compile-time polymorphism</li>
+          <li>run-time polymorphism</li>
+      </ul>
+      We can perform polymorphism by method overloading and method overriding <br>
+      If you overload a static method in Java, it is the example of compile time polymorphism
+      <h2><u>Runtime Polymorphism</u></h2>
+      It is a process in which a call to an overridden method is resolved at runtime rather than compile-time <br>
+      In this process, an overridden method is called through the reference variable of a superclass <br>
+      The determination of the method to be called is based on the object being referred to by the reference variable 
+      <h2><u>Upcasting</u></h2>
+      If the reference variable of Parent class refers to the object of Child class, it is known as upcasting <br> <br>
+      class A{}  <br>
+class B extends A{}   <br>
+A a=new B();//upcasting   <br> <br>
+      Since method invocation is determined by the JVM not compiler, it is known as runtime polymorphism <br> <br>
+      <div class="p1">
+          class Bike <br>
+          { <br>  
+  void run() <br>
+  { <br>
+  System.out.println("running"); <br>
+  }  <br>
+}  <br> 
+class Splendor extends Bike <br>
+ { <br>  
+  void run() <br>
+  { <br>
+  System.out.println("running safely with 60km"); <br>
+  } <br>  
+  
+  public static void main(String args[]) <br>
+   { <br>  
+    Bike b = new Splendor();//upcasting   <br>
+    b.run();   <br>
+  }   <br>
+}   <br>
+      </div> <br>
+      
+<div class="p2">
+class Bank <br>
+{ <br>  
+float getRateOfInterest() <br>
+  { <br>
+  return 0; <br>
+  } <br>  
+}   <br>
+class SBI extends Bank <br>
+{ <br>  
+float getRateOfInterest() <br>
+  { <br>
+  return 8.4f; <br>
+  } <br>  
+}   <br>
+class ICICI extends Bank <br>
+{ <br>  
+float getRateOfInterest() <br>
+  { <br>
+  return 7.3f; <br>
+  } <br>  
+}   <br>
+class AXIS extends Bank <br>
+{ <br>  
+float getRateOfInterest() <br>
+  { <br>
+  return 9.7f; <br>
+  } <br>  
+}   <br>
+class TestPolymorphism <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Bank b; <br>  
+b=new SBI(); <br>  
+System.out.println("SBI Rate of Interest: "+b.getRateOfInterest()); <br>  
+b=new ICICI();   <br>
+System.out.println("ICICI Rate of Interest: "+b.getRateOfInterest()); <br>  
+b=new AXIS();   <br>
+System.out.println("AXIS Rate of Interest: "+b.getRateOfInterest());   <br>
+}   <br>
+}   <br>
+</div> 
+<h2><u>Runtime Polymorphism with Data Member</u></h2>
+  A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members <br> <br>
+  <div class="p3">
+class Bike  <br>
+{ <br>  
+ int speedlimit=90;   <br>
+}   <br>
+class Honda3 extends Bike <br>
+{ <br>  
+ int speedlimit=150;   <br>
+  
+ public static void main(String args[]) <br>
+ { <br>  
+  Bike obj=new Honda3();   <br>
+  System.out.println(obj.speedlimit);//90   <br>
+}   <br>
+  </div> 
+ <h2><u>Runtime Polymorphism with Multilevel Inheritance</u></h2> 
+ <div class="p4">
+class Animal  <br>
+{ <br>  
+void eat(){System.out.println("eating");}  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void eat() <br>
+  { <br>
+  System.out.println("eating fruits"); <br>
+  } <br>  
+}   <br>
+class BabyDog extends Dog <br>
+{ <br>  
+void eat() <br>
+{ <br>
+System.out.println("drinking milk"); <br>
+} <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Animal a1,a2,a3;   <br>
+a1=new Animal();   <br>
+a2=new Dog();   <br>
+a3=new BabyDog();   <br>
+a1.eat();   <br>
+a2.eat();   <br>
+a3.eat();   <br>
+}   <br>
+}        <br>
+ </div>  <br>
+<div class="p5">
+class Animal  <br>
+{ <br>  
+void eat() <br>
+  { <br>
+  System.out.println("animal is eating..."); <br>
+  } <br>  
+}   <br>
+class Dog extends Animal <br>
+{ <br>  
+void eat() <br>
+  { <br>
+  System.out.println("dog is eating..."); <br>
+  } <br>  
+}   <br>
+class BabyDog1 extends Dog <br>
+{ <br>  
+public static void main(String args[]) <br>
+{ <br>  
+Animal a=new BabyDog1();  <br> 
+a.eat();   <br>
+} <br>
+} <br>
+</div>  <br> 
+Since BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked <br> <br>
+ <hr>
+ <h2><u>Static Binding and Dynamic Binding</u></h2>
+ Connecting a method call to the method body is known as binding <br>
+ There are two types of binding:
+ <ul>
+     <li>Static Binding (early binding)</li>
+     <li>Dynamic Binding (late binding)</li>
+ </ul>
+
+<h2><u>Static Binding</u></h2>
+<ul>
+     <li>When type of object is determined at compile time</li>
+     <li>If there is any private, final or static method in a class</li>
+ </ul>
+
+<div class="p1">
+    class Dog <br>
+    { <br>  
+ private void eat() <br>
+ { <br>
+ System.out.println("dog is eating..."); <br>
+ } <br>  
+  
+ public static void main(String args[]) <br>
+ { <br>  
+  Dog d1=new Dog();   <br>
+  d1.eat();   <br>
+ }   <br>
+}  <br>
+</div> 
+ <h2><u>Dynamic Binding</u></h2>
+<ul>
+     <li>When type of object is determined at run time</li>
+     <li>If there is any private, final or static method in a class</li>
+ </ul>
+
+ <div class="p2">
+ class Animal <br>
+ { <br>  
+ void eat() <br>
+  { <br>
+  System.out.println("animal is eating..."); <br>
+  } <br>  
+}   <br>
+  
+class Dog extends Animal <br>
+{ <br>  
+ void eat() <br>
+ { <br>
+ System.out.println("dog is eating...");}   <br>
+  
+ public static void main(String args[]) <br>
+ { <br>  
+  Animal a=new Dog();   <br>
+  a.eat();   <br>
+ }   <br>
+}       <br>
+ </div> <br>
+ In the above example object type cannot be determined by the compiler, because the instance of Dog is also an instance of Animal <br> <br>
+ <hr>
+ <h2><u>instanceof operator</u></h2>
+ It is used to test whether the object is an instance of the specified type (class or subclass or interface) <br>
+ It is also known as type comparison operator because it compares the instance with type <br>
+ It returns either true or false <br>
+ If we apply the instanceof operator with any variable that has null value, it returns false <br> <br>
+ <div class="p3">
+     class Simple1 <br>
+     { <br>  
+ public static void main(String args[]) <br>
+ { <br>  
+ Simple1 s=new Simple1();   <br>
+ System.out.println(s instanceof Simple1);//true   <br>
+ }   <br>
+}   <br>
+ 
+ </div> <br>
+ An object of subclass type is also a type of parent class <br><br>
+ <div class="p4">
+     class Animal <br>
+     { <br>
+     } <br>  
+class Dog1 extends Animal{//Dog inherits Animal   <br>
+  
+ public static void main(String args[]) <br>
+ { <br>  
+ Dog1 d=new Dog1();   <br>
+ System.out.println(d instanceof Animal);//true   <br>
+ }   <br>
+}   <br>
+ </div> <br>
+ If we apply instanceof operator with a variable that have null value, it returns false <br><br>
+ <div class="p5">
+     class Dog2 <br>
+     { <br>  
+ public static void main(String args[]) <br>
+ { <br>  
+  Dog2 d=null;   <br>
+  System.out.println(d instanceof Dog2);//false   <br>
+ }   <br>
+}   <br>
+ </div> <br>
+ 
+  <a class="anchor" href="index.html">Home</a>
+   </div>
+   
+    
+</body>
+</html>
